@@ -31,7 +31,7 @@ Notes-App/
 │
 ├── notes/
 ├── notesproject/
-├── screenshots/
+├── screenshot/
 │   ├── home.png
 │   ├── create.png
 │   ├── view.png
@@ -49,25 +49,25 @@ Notes-App/
 
 ### 🏠 Home Page
 
-![Home](screenshots/home.png)
+![Home](screenshot/home.png)
 
 ---
 
 ### ➕ Create Note
 
-![Create Note](screenshots/create.png)
+![Create Note](screenshot/create.png)
 
 ---
 
 ### 📖 View Note
 
-![View Note](screenshots/view.png)
+![View Note](screenshot/view.png)
 
 ---
 
 ### ✏️ Edit Note
 
-![Edit Note](screenshots/edit.png)
+![Edit Note](screenshot/edit.png)
 
 ---
 
