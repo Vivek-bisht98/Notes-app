@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Note</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .container{
+            width:100%;
+            max-width:550px;
+            background:white;
+            padding:35px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,.15);
+        }
+
+        h1{
+            text-align:center;
+            color:#222;
+            margin-bottom:25px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:15px;
+            margin-bottom:20px;
+            outline:none;
+        }
+
+        input:focus,
+        textarea:focus{
+            border-color:#2563eb;
+        }
+
+        textarea{
+            resize:vertical;
+            min-height:150px;
+        }
+
+        .buttons{
+            display:flex;
+            gap:12px;
+        }
+
+        .btn{
+            flex:1;
+            text-decoration:none;
+            text-align:center;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            font-size:15px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+            color:white;
+        }
+
+        .back{
+            background:#6b7280;
+        }
+
+        .back:hover{
+            background:#4b5563;
+        }
+
+        .update{
+            background:#2563eb;
+        }
+
+        .update:hover{
+            background:#1d4ed8;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>✏ Edit Note</h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Title</label>
+
+        <input
+            type="text"
+            name="title"
+            value="{{ note.title }}"
+            required
+        >
+
+        <label>Content</label>
+
+        <textarea
+            name="content"
+            required
+        >{{ note.content }}</textarea>
+
+        <div class="buttons">
+
+            <a href="{% url 'home' %}" class="btn back">
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="btn update"
+            >
+                Update Note
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

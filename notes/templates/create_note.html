@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Note</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .container{
+            width:100%;
+            max-width:500px;
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,.15);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:25px;
+            color:#222;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#444;
+        }
+
+        input,
+        textarea{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            margin-bottom:20px;
+            font-size:15px;
+            outline:none;
+        }
+
+        input:focus,
+        textarea:focus{
+            border-color:#2563eb;
+        }
+
+        textarea{
+            resize:vertical;
+        }
+
+        .buttons{
+            display:flex;
+            justify-content:space-between;
+            gap:10px;
+        }
+
+        .btn{
+            flex:1;
+            padding:12px;
+            border:none;
+            border-radius:8px;
+            text-decoration:none;
+            text-align:center;
+            color:white;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        .save{
+            background:#2563eb;
+        }
+
+        .save:hover{
+            background:#1d4ed8;
+        }
+
+        .back{
+            background:#6b7280;
+        }
+
+        .back:hover{
+            background:#4b5563;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📝 Create New Note</h1>
+
+    <form method="POST" action="{% url 'create_note' %}">
+
+        {% csrf_token %}
+
+        <label>Title</label>
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Enter note title..."
+            required
+        >
+
+        <label>Content</label>
+
+        <textarea
+            name="content"
+            rows="6"
+            placeholder="Write your note here..."
+            required
+        ></textarea>
+
+        <div class="buttons">
+
+            <a href="{% url 'home' %}" class="btn back">
+                Back
+            </a>
+
+            <button type="submit" class="btn save">
+                Save Note
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
