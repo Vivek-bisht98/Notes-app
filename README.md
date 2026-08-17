@@ -76,7 +76,7 @@ Notes-App/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Notes-App.git
+git clone https://github.com/Vivek-bisht98/Notes-App.git
 ```
 
 ### 2. Move into the project directory
